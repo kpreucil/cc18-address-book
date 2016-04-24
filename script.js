@@ -42,6 +42,16 @@ function Controller (model) { //will draw from the entity/person/business. Will 
    this.getBizAddress = function () {
        return model.bizAddresses;
    }
+//   this.search = function (name) {
+//       for (var i = 0; i < model.personAddresses.length; i++) {
+//           if (name == model.personAddresses[i]) {
+//               
+//           }
+//           for (var j = 0; j < model.bizAddresses.length; j++) {
+//               
+//           }
+//       }
+//   }
 }
 
 
@@ -59,14 +69,14 @@ function View(controller){
     this.showAllPerson = function () {
         var world = document.getElementById("personAddresses");
         world.innerHTML = "";
-        for (var i = 0; 0 < controller.getPersonAddress().length; i++) {
+        for (var i = 0; i < controller.getPersonAddress().length; i++) {
             this.showPersonAddresses(i);
         }
     }
     this.showAllBiz = function () {
         var world = document.getElementById("bizAddresses");
         world.innerHTML = "";
-        for (var i = 0; 0 < controller.getBizAddress().length; i++) {
+        for (var i = 0; i < controller.getBizAddress().length; i++) {
             this.showBizAddresses(i);
         }
     }
@@ -106,6 +116,31 @@ function View(controller){
         c.createBiz(firstName, lastName, email, phone, bizName, website);
         this.showAllBiz();
     }
+    this.showSearch = function (name) {
+        var world = document.getElementById("displaySearch");
+        var p = document.createElement("div");
+        var biz = controller.getBizAddress()[index];
+        var person = controller.getPersonAddress()[index];
+        for (var i = 0; i < person.length; i++) {
+           if (name == person[i]) {
+               p.innerHTML = "<h4 class='caps'>Search Results </hv>" + "<h3>" + person.firstName + " " + person.lastName + "</h3>" + person.email + ", " + person.phone + "<br /> <hr> <br />";
+               world.appendChild(p);
+           }
+           for (var j = 0; j < biz.length; j++) {
+               if (name == biz[j]) {
+                   p.innerHTML = "<h4 class='caps'>Search Results </hv>" + "<h3>" + biz.firstName + " " + biz.lastName + "</h3>" + biz.email + ", " + biz.phone + "<br />" + biz.bizName + ", " + biz.website + "<br /> <hr> <br />";
+                   world.appendChild(p);
+               } else{
+                   p.innerHTML = "<h4 class='caps'>Search Results </hv>Sorry, no addresses match search criteria."
+               }
+           }
+       }
+        
+   }
+    this.search = function () {
+        var name = document.getElementById("search").value;
+        this.showSearch(name);
+    }
     
 }
 document.getElementById("newPerson").onclick = function (){
@@ -113,4 +148,7 @@ document.getElementById("newPerson").onclick = function (){
 }
 document.getElementById("newBiz").onclick = function (){
     v.createBiz();
+}
+document.getElementById("searchBtn").onclick = function (){
+    v.search();
 }
