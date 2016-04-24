@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Address Book</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        .caps {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .center{
+            text-align: center;
+        }
+        .bold{
+            font-weight: bold;
+        }
+        .gray {
+            color: lightgrey;
+        }
+        .itl{
+            font-size: 13px;
+            font-style: italic;
+        }
+        .bkgGray{
+            background-color: lightgrey;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 2px;
+            padding-bottom: 0px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="center caps">Address Book</h1><hr><br />
+    
+    
+    <h2><div id="start"></div></h2>
+    <label class="bold caps gray">First Name</label>
+    <input type="text" id="firstName" />
+    <br /><br />
+    <label class="bold caps gray">Last Name</label>
+    <input type="text" id="lastName" />
+    <br /><br />
+    <label class="bold caps gray">Email</label>
+    <input type="text" id="email" />
+    <br /><br />
+    <label class="bold caps gray">Phone</label>
+    <input type="tel" id="phone" />
+    <br /><br />
+    <!--   <input type="text" id="vdata" /> <br />-->
+    <label class="gray"><span class="bold caps">Is this a business?</span> <br /> <span class="itl">If yes, fill out the following sections.</span></label>
+    <input type="checkbox" id="bizYes" /> 
+    <br /><br />
+    <label class="bold caps gray">Business Name</label>
+    <input type="text" id="bizName" />
+    <br /><br />
+    <label class="bold caps gray">Website</label>
+    <input type="text" id="website" />
+    <br /><br />
+    <button id="newPerson">Add New Friend</button>
+<!--    <br /><br />-->
+    <button id="newBiz">Add New Buisiness</button>
+    <br /><br />
+<!--    <div class="bkgGray" id="addresses"></div>-->
+   <h4 class="caps">Personal</h4>
+    <div class="bkgGray" id="personAddresses"></div>
+    <br /><br />
+    <h4 class="caps">Business</h4>
+    <div class="bkgGray" id="bizAddresses"></div>
+
+    
+    
+    
+<!--    Add Script -->
+<script src="script.js"></script>
+</body>
+</html>
